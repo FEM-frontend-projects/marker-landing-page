@@ -6,3 +6,13 @@ export const COLORS = {
   darkBlue: 'hsl(230deg, 60%, 8%)',
   pink: 'hsl(343deg, 100%, 58%)',
 };
+
+const BREAKPOINTS = {
+  tablet: 750,
+  mobile: 450,
+};
+
+export const QUERIES = {
+  tabletAndDown: `max-width: ${BREAKPOINTS.tablet / 16}rem`,
+  mobleAndDown: `max-width: ${BREAKPOINTS.mobile / 16}rem`,
+};

@@ -7,65 +7,80 @@ import HeaderCard from './HeaderCard';
 
 const Header = () => {
   return (
-    <Wrapper>
-      <LogoArea>
+    <>
+      <SuperHeader>
         <MakerLogo>
           <img src={makerLogo} alt="logo text: maker" />
         </MakerLogo>
-      </LogoArea>
+      </SuperHeader>
 
-      <ContentWrapper>
-        <HeroLeftWrapper>
+      <MainHeader>
+        <HeroLeft>
           <img src={heroLeft} alt="" />
-        </HeroLeftWrapper>
-
-        <HeaderCard />
-
-        <HeroRightWrapper>
+        </HeroLeft>
+        <HeaderContent>
+          <HeaderCard />
+        </HeaderContent>
+        <HeroRight>
           <img src={heroRight} alt="" />
-        </HeroRightWrapper>
-      </ContentWrapper>
-    </Wrapper>
+        </HeroRight>
+      </MainHeader>
+    </>
   );
 };
 
-const Wrapper = styled.header`
-  position: relative;
-`;
-
-const LogoArea = styled.div`
+const SuperHeader = styled.div`
   height: 120px;
-  padding: 50px 120px;
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 90px;
+  padding-left: 165px;
+  display: flex;
+  justify-content: flex-start;
 `;
 
 const MakerLogo = styled.div`
   width: 120px;
-  height: 35px;
 `;
 
-const ContentWrapper = styled.div`
+const MainHeader = styled.header`
+  width: 100%;
+  padding-top: 50px;
   display: flex;
-  padding-top: 80px;
-  border: 2px solid red;
-  height: 455px;
+  justify-content: space-between;
+  overflow: hidden;
 `;
 
-const HeroLeftWrapper = styled.div`
-  height: 459px;
+const Hero = styled.div`
+  position: relative;
+  min-height: 450px;
+  width: 350px;
 
   & img {
     display: block;
+    height: 100%;
     aspect-ratio: 1;
+    position: absolute;
+    object-fit: none;
+    object-position: 0%;
   }
 `;
 
-const HeroRightWrapper = styled.div`
-  height: 459px;
+const HeroLeft = styled(Hero)`
+  /* left: -60px; */
+  /* transform: translateX(-50px); */
 
   & img {
-    display: block;
-    /* transform: translateX(85px); */
+    object-position: 100%;
   }
+`;
+
+const HeroRight = styled(Hero)``;
+
+const HeaderContent = styled.div`
+  padding-top: 40px;
+  position: relative;
+  z-index: 10;
 `;
 
 export default Header;
