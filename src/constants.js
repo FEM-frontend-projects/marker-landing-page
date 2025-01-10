@@ -8,7 +8,7 @@ export const COLORS = {
 };
 
 const BREAKPOINTS = {
-  tablet: 750,
+  tablet: 950,
   mobile: 450,
 };
 

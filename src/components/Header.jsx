@@ -4,6 +4,7 @@ import heroRight from '../assets/illustration-hero-right.svg';
 import makerLogo from '../assets/logo.svg';
 
 import HeaderCard from './HeaderCard';
+import { QUERIES } from '../constants';
 
 const Header = () => {
   return (
@@ -44,34 +45,42 @@ const MakerLogo = styled.div`
 `;
 
 const MainHeader = styled.header`
-  width: 100%;
+  width: 120%;
+  min-width: 1800px;
   padding-top: 50px;
   display: flex;
   justify-content: space-between;
   overflow: hidden;
+
+  @media (${QUERIES.tabletAndDown}) {
+    justify-content: center;
+  }
 `;
 
 const Hero = styled.div`
+  height: 550px;
+  width: 600px;
   position: relative;
-  min-height: 450px;
-  width: 350px;
 
   & img {
     display: block;
     height: 100%;
-    aspect-ratio: 1;
     position: absolute;
-    object-fit: none;
-    object-position: 0%;
+    aspect-ratio: 1;
+  }
+
+  @media (${QUERIES.tabletAndDown}) {
+    height: 350px;
   }
 `;
 
 const HeroLeft = styled(Hero)`
   /* left: -60px; */
   /* transform: translateX(-50px); */
+  /* top: 0; */
 
   & img {
-    object-position: 100%;
+    right: 0;
   }
 `;
 

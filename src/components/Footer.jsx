@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import { COLORS } from '../constants';
+import { COLORS, QUERIES } from '../constants';
 import footerSvg from '../assets/bg-footer-squiggle.svg';
 
 import InputField from './InputField';
@@ -14,7 +14,11 @@ const Footer = () => {
     const result = emailPattern.test(inputText);
 
     if (!result) {
-      return setErrorMsg(`Oops! That doesn't look like an email address!`);
+      setErrorMsg(`Oops! That doesn't look like an email address!`);
+      setTimeout(() => {
+        setErrorMsg(null);
+      }, 3000);
+      return;
     }
     setErrorMsg(null);
   };
@@ -67,6 +71,10 @@ const InputSection = styled.div`
 const BigText = styled.h1`
   font-size: ${32 / 16}rem;
   text-align: center;
+
+  @media (${QUERIES.tabletAndDown}) {
+    font-size: ${24 / 16}rem;
+  }
 `;
 
 const InputWrapper = styled.div`

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS } from '../constants';
+import { COLORS, QUERIES } from '../constants';
 
 import LisItem from './LisItem';
 
@@ -19,10 +19,12 @@ const Main = () => {
             <img src={passionsSvg} alt="" />
           </IconWrapper>
 
-          <CardTitle>Indulge your passions</CardTitle>
-          <SmallText>
-            Your passions shouldn&apos;t be just for the weekend. Earn a living doing what you love.
-          </SmallText>
+          <TextWrapper>
+            <CardTitle>Indulge your passions</CardTitle>
+            <SmallText>
+              Your passions shouldn&apos;t be just for the weekend. Earn a living doing what you love.
+            </SmallText>
+          </TextWrapper>
         </Card>
 
         <Card>
@@ -30,8 +32,10 @@ const Main = () => {
             <img src={freedomSvg} alt="" />
           </IconWrapper>
 
-          <CardTitle>Gain financial freedom</CardTitle>
-          <SmallText>Start making money work for you. There’s nothing quite like earning while you sleep.</SmallText>
+          <TextWrapper>
+            <CardTitle>Gain financial freedom</CardTitle>
+            <SmallText>Start making money work for you. There’s nothing quite like earning while you sleep.</SmallText>
+          </TextWrapper>
         </Card>
 
         <Card>
@@ -39,8 +43,10 @@ const Main = () => {
             <img src={lifeStyleSvg} alt="" />
           </IconWrapper>
 
-          <CardTitle>Choose your lifestyle</CardTitle>
-          <SmallText>Own your daily schedule. Fancy a lie-in? Go for it! Take charge of your week.</SmallText>
+          <TextWrapper>
+            <CardTitle>Choose your lifestyle</CardTitle>
+            <SmallText>Own your daily schedule. Fancy a lie-in? Go for it! Take charge of your week.</SmallText>
+          </TextWrapper>
         </Card>
 
         <Card>
@@ -48,8 +54,10 @@ const Main = () => {
             <img src={workSvg} alt="" />
           </IconWrapper>
 
-          <CardTitle>Work from anywhere</CardTitle>
-          <SmallText>Selling online means not being pinned down. Want to work AND travel? Go for it!</SmallText>
+          <TextWrapper>
+            <CardTitle>Work from anywhere</CardTitle>
+            <SmallText>Selling online means not being pinned down. Want to work AND travel? Go for it!</SmallText>
+          </TextWrapper>
         </Card>
       </CardSection>
 
@@ -118,6 +126,10 @@ const CardSection = styled.section`
   justify-content: center;
   gap: 25px;
   margin-bottom: 200px;
+
+  @media (${QUERIES.tabletAndDown}) {
+    flex-direction: column;
+  }
 `;
 
 const Card = styled.div`
@@ -125,6 +137,22 @@ const Card = styled.div`
 
   &:nth-of-type(even) {
     margin-top: 55px;
+  }
+
+  @media (${QUERIES.tabletAndDown}) {
+    width: 515px;
+    display: flex;
+    gap: 50px;
+
+    &:nth-of-type(even) {
+      margin-top: 0;
+      transform: translateX(-35px);
+    }
+
+    &:nth-of-type(odd) {
+      margin-top: 0;
+      transform: translateX(35px);
+    }
   }
 `;
 
@@ -137,10 +165,28 @@ const IconWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 40px;
+
+  @media (${QUERIES.tabletAndDown}) {
+    width: 120px;
+    height: 124px;
+    flex-shrink: 0;
+    flex-grow: 0;
+
+    & img {
+      width: 60%;
+    }
+  }
+`;
+
+const TextWrapper = styled.div`
+  @media (${QUERIES.tabletAndDown}) {
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+  }
 `;
 
 const CardTitle = styled.h4`
-  margin-bottom: 20px;
   font-size: ${18 / 16}rem;
 `;
 
@@ -168,16 +214,27 @@ const PriceCardSection = styled.section`
   flex-direction: row;
   gap: 30px;
   align-items: center;
+
+  @media (${QUERIES.tabletAndDown}) {
+    flex-direction: column;
+    height: revert;
+    gap: 50px;
+  }
 `;
 
 const PriceCard = styled.div`
   padding: 60px 38px;
   flex: 1;
+  gap: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
   position: relative;
+
+  @media (${QUERIES.tabletAndDown}) {
+    width: 445px;
+  }
 `;
 
 const PriceCardSmaller = styled(PriceCard)`

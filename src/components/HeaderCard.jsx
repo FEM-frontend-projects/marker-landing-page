@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS } from '../constants';
+import { COLORS, QUERIES } from '../constants';
 import bigSVG from '../assets/bg-hero-squiggle.svg';
 import scrollSVG from '../assets/icon-scroll.svg';
 
@@ -12,6 +12,7 @@ const HeaderCard = () => {
           <img src={scrollSVG} alt="" />
         </ScrollIcon>
       </SvgWrapper>
+
       <LargeText>Get paid for the work</LargeText>
 
       <LargeText>
@@ -20,10 +21,9 @@ const HeaderCard = () => {
 
       <Spacer />
 
-      <SmallText>The 9-5 grind is so last century. We believe in living life on your own terms.</SmallText>
-
       <SmallText>
-        Whether you’re looking to escape the rat race or set up a side hustle, we’ve got you covered.
+        The 9-5 grind is so last century. We believe in living life on your own terms. Whether you’re looking to escape
+        the rat race or set up a side hustle, we’ve got you covered.
       </SmallText>
     </Wrapper>
   );
@@ -31,11 +31,15 @@ const HeaderCard = () => {
 
 const Wrapper = styled.div`
   text-align: center;
-  width: 100%;
+  width: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+
+  @media (${QUERIES.tabletAndDown}) {
+    width: 550px;
+  }
 `;
 
 const LargeText = styled.h1`
@@ -50,6 +54,10 @@ const LargeText = styled.h1`
 
   & :nth-of-type(2) {
     margin-bottom: 30px;
+  }
+
+  @media (${QUERIES.tabletAndDown}) {
+    font-size: ${32 / 16}rem;
   }
 `;
 
@@ -71,12 +79,21 @@ const SvgWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (${QUERIES.tabletAndDown}) {
+    width: 300px;
+    top: -30px;
+  }
 `;
 
 const ScrollIcon = styled.div`
   width: 26px;
   height: 46px;
   transform: translateY(-40%);
+
+  @media (${QUERIES.tabletAndDown}) {
+    transform: translateY(90%);
+  }
 `;
 
 export default HeaderCard;

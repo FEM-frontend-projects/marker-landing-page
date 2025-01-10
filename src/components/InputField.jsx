@@ -35,6 +35,14 @@ const Input = styled.input`
   font-size: ${15 / 16}rem;
   padding-left: 20px;
   color: white;
+
+  & :active {
+    outline: 2px solid ${COLORS.turquise};
+  }
+
+  &:focus {
+    outline: 3px solid ${COLORS.turquise};
+  }
 `;
 
 const ErrorMessage = styled.p`
