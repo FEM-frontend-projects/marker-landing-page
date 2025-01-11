@@ -5,6 +5,7 @@ import makerLogo from '../assets/logo.svg';
 
 import HeaderCard from './HeaderCard';
 import { QUERIES } from '../constants';
+import HeroMobile from './HeroMobile';
 
 const Header = () => {
   return (
@@ -14,7 +15,7 @@ const Header = () => {
           <img src={makerLogo} alt="logo text: maker" />
         </MakerLogo>
       </SuperHeader>
-
+      <HeroMobile />
       <MainHeader>
         <HeroLeft>
           <img src={heroLeft} alt="" />
@@ -38,6 +39,11 @@ const SuperHeader = styled.div`
   padding-left: 165px;
   display: flex;
   justify-content: flex-start;
+
+  @media (${QUERIES.mobleAndDown}) {
+    justify-content: center;
+    padding-left: 0;
+  }
 `;
 
 const MakerLogo = styled.div`
@@ -54,6 +60,11 @@ const MainHeader = styled.header`
 
   @media (${QUERIES.tabletAndDown}) {
     justify-content: center;
+  }
+
+  @media (${QUERIES.mobleAndDown}) {
+    min-width: revert;
+    padding: 0 40px;
   }
 `;
 
@@ -72,13 +83,13 @@ const Hero = styled.div`
   @media (${QUERIES.tabletAndDown}) {
     height: 350px;
   }
+
+  @media (${QUERIES.mobleAndDown}) {
+    display: none;
+  }
 `;
 
 const HeroLeft = styled(Hero)`
-  /* left: -60px; */
-  /* transform: translateX(-50px); */
-  /* top: 0; */
-
   & img {
     right: 0;
   }

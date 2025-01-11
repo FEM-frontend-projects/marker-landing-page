@@ -27,6 +27,7 @@ const Footer = () => {
     <FooterWrapper>
       <ImageWrapper>
         <Image src={footerSvg} alt="" />
+        <BigTextMobile>Get notified when we launch</BigTextMobile>
       </ImageWrapper>
       <InputSection>
         <BigText>Get notified when we launch</BigText>
@@ -35,6 +36,11 @@ const Footer = () => {
           <Button onClick={validateEmail}>Get notified</Button>
         </InputWrapper>
       </InputSection>
+
+      <MobileInputWrapper>
+        <InputField setInputText={setInputText} errorMessage={errorMessage} />
+        <Button onClick={validateEmail}>Get notified</Button>
+      </MobileInputWrapper>
     </FooterWrapper>
   );
 };
@@ -45,6 +51,16 @@ const FooterWrapper = styled.footer`
   margin-bottom: 120px;
   position: relative;
   width: 1600px;
+
+  @media (${QUERIES.tabletAndDown}) {
+    width: 1000px;
+  }
+
+  @media (${QUERIES.mobleAndDown}) {
+    width: 100%;
+    height: revert;
+    margin-top: 80px;
+  }
 `;
 
 const ImageWrapper = styled.div``;
@@ -52,6 +68,10 @@ const ImageWrapper = styled.div``;
 const Image = styled.img`
   width: 100%;
   display: block;
+
+  @media (${QUERIES.tabletAndDown}) {
+    margin-top: 50px;
+  }
 `;
 
 const InputSection = styled.div`
@@ -75,11 +95,19 @@ const BigText = styled.h1`
   @media (${QUERIES.tabletAndDown}) {
     font-size: ${24 / 16}rem;
   }
+
+  @media (${QUERIES.mobleAndDown}) {
+    display: none;
+  }
 `;
 
 const InputWrapper = styled.div`
   display: flex;
   gap: 16px;
+
+  @media (${QUERIES.mobleAndDown}) {
+    display: none;
+  }
 `;
 
 const Button = styled.button`
@@ -95,6 +123,36 @@ const Button = styled.button`
     background: ${COLORS.darkBlue};
     border: 2px solid ${COLORS.turquise};
     color: white;
+  }
+
+  @media (${QUERIES.mobleAndDown}) {
+    width: 320px;
+  }
+`;
+
+const BigTextMobile = styled.h1`
+  font-size: ${24 / 16}rem;
+  position: absolute;
+  top: 55px;
+  width: 100%;
+  display: none;
+  text-align: center;
+  padding: 0 54px;
+
+  @media (${QUERIES.mobleAndDown}) {
+    display: block;
+  }
+`;
+
+const MobileInputWrapper = styled.div`
+  display: none;
+
+  @media (${QUERIES.mobleAndDown}) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 50px;
   }
 `;
 

@@ -19,12 +19,19 @@ const HeaderCard = () => {
         you <span>love</span> to do.
       </LargeText>
 
+      <LargeTextMobile>
+        Get paid for the work you <span>love</span> to do.
+      </LargeTextMobile>
+
       <Spacer />
 
       <SmallText>
         The 9-5 grind is so last century. We believe in living life on your own terms. Whether you’re looking to escape
         the rat race or set up a side hustle, we’ve got you covered.
       </SmallText>
+      <ScrollIconMobile>
+        <img src={scrollSVG} alt="" />
+      </ScrollIconMobile>
     </Wrapper>
   );
 };
@@ -39,6 +46,12 @@ const Wrapper = styled.div`
 
   @media (${QUERIES.tabletAndDown}) {
     width: 550px;
+  }
+
+  @media (${QUERIES.mobleAndDown}) {
+    width: 100%;
+    padding: 0 24px;
+    gap: 30px;
   }
 `;
 
@@ -59,17 +72,44 @@ const LargeText = styled.h1`
   @media (${QUERIES.tabletAndDown}) {
     font-size: ${32 / 16}rem;
   }
+
+  @media (${QUERIES.mobleAndDown}) {
+    display: none;
+  }
+`;
+
+const LargeTextMobile = styled.h1`
+  font-size: ${32 / 16}rem;
+  display: none;
+
+  & span {
+    color: ${COLORS.turquise};
+    line-height: inherit;
+  }
+
+  @media (${QUERIES.mobleAndDown}) {
+    display: revert;
+  }
 `;
 
 const SmallText = styled.p`
   width: 550px;
   color: ${COLORS.grey};
   z-index: 20;
+
+  @media (${QUERIES.mobleAndDown}) {
+    width: revert;
+    font-size: ${15 / 16}rem;
+  }
 `;
 
 const Spacer = styled.div`
   width: 100%;
   height: 30px;
+
+  @media (${QUERIES.mobleAndDown}) {
+    display: none;
+  }
 `;
 
 const SvgWrapper = styled.div`
@@ -84,6 +124,10 @@ const SvgWrapper = styled.div`
     width: 300px;
     top: -30px;
   }
+
+  @media (${QUERIES.mobleAndDown}) {
+    display: none;
+  }
 `;
 
 const ScrollIcon = styled.div`
@@ -93,6 +137,18 @@ const ScrollIcon = styled.div`
 
   @media (${QUERIES.tabletAndDown}) {
     transform: translateY(90%);
+  }
+
+  @media (${QUERIES.mobleAndDown}) {
+    display: none;
+  }
+`;
+
+const ScrollIconMobile = styled.div`
+  display: none;
+
+  @media (${QUERIES.mobleAndDown}) {
+    display: block;
   }
 `;
 
